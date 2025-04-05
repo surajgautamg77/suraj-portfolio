@@ -120,7 +120,7 @@ const AboutPage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-blue-lg bg-gradient-primary">
               <img
-                src="/profile-image.jpg"
+                src="public\assets\images\prof"
                 alt="Suraj Gautam"
                 className="w-full h-full object-cover"
               />
