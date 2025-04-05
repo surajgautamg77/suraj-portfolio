@@ -3,130 +3,126 @@ import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   // Group skills by category with ratings
-  const skills = {
-    backend: [
-      {
-        name: "Node.js",
-        icon: "⬢",
-        color: "text-green-600 dark:text-green-400",
-        rating: 5,
-      },
-      {
-        name: "Python",
-        icon: "🐍",
-        color: "text-blue-700 dark:text-blue-400",
-        rating: 4,
-      },
-      {
-        name: "PostgreSQL",
-        icon: "🐘",
-        color: "text-blue-800 dark:text-blue-400",
-        rating: 4,
-      },
-      {
-        name: "MongoDB",
-        icon: "🍃",
-        color: "text-green-500 dark:text-green-400",
-        rating: 5,
-      },
-      {
-        name: "Gen AI",
-        icon: "🧠",
-        color: "text-purple-600 dark:text-purple-400",
-        rating: 3,
-      },
-    ],
-    frameworks: [
-      {
-        name: "Express.js",
-        icon: "𝓔",
-        color: "text-gray-700 dark:text-gray-300",
-        rating: 5,
-      },
-      {
-        name: "NestJS",
-        icon: "🪺",
-        color: "text-red-600 dark:text-red-400",
-        rating: 4,
-      },
-      {
-        name: "FastAPI",
-        icon: "⚡",
-        color: "text-teal-600 dark:text-teal-400",
-        rating: 3,
-      },
-      {
-        name: "React.js",
-        icon: "⚛️",
-        color: "text-blue-500 dark:text-blue-400",
-        rating: 4,
-      },
-      {
-        name: "PM2",
-        icon: "⚙️",
-        color: "text-blue-500 dark:text-blue-400",
-        rating: 4,
-      },
-    ],
-    frontend: [
-      {
-        name: "JavaScript",
-        icon: "𝙅𝙎",
-        color: "text-yellow-500 dark:text-yellow-400",
-        rating: 5,
-      },
-      {
-        name: "TypeScript",
-        icon: "𝗧𝗦",
-        color: "text-blue-600 dark:text-blue-400",
-        rating: 4,
-      },
-      {
-        name: "Tailwind CSS",
-        icon: "🌊",
-        color: "text-cyan-500 dark:text-cyan-400",
-        rating: 4,
-      },
-      {
-        name: "HTML5",
-        icon: "🔱",
-        color: "text-orange-500 dark:text-orange-400",
-        rating: 5,
-      },
-      {
-        name: "CSS3",
-        icon: "🎨",
-        color: "text-blue-600 dark:text-blue-400",
-        rating: 4,
-      },
-    ],
-    others: [
-      {
-        name: "Git",
-        icon: "🌿",
-        color: "text-red-500 dark:text-red-400",
-        rating: 4,
-      },
-      {
-        name: "GitHub",
-        icon: "🐱",
-        color: "text-gray-700 dark:text-gray-300",
-        rating: 4,
-      },
-      {
-        name: "AWS",
-        icon: "☁️",
-        color: "text-orange-500 dark:text-orange-400",
-        rating: 3,
-      },
-      {
-        name: "Docker",
-        icon: "🐳",
-        color: "text-blue-600 dark:text-blue-400",
-        rating: 3,
-      },
-    ],
-  };
+  const skills = [
+    // Backend & Databases
+    {
+      name: "Node.js",
+      icon: "⬢",
+      color: "text-green-600 dark:text-green-400",
+      rating: 5,
+    },
+    {
+      name: "Python",
+      icon: "🐍",
+      color: "text-blue-700 dark:text-blue-400",
+      rating: 4,
+    },
+    {
+      name: "PostgreSQL",
+      icon: "🐘",
+      color: "text-blue-800 dark:text-blue-400",
+      rating: 4,
+    },
+    {
+      name: "MongoDB",
+      icon: "🍃",
+      color: "text-green-500 dark:text-green-400",
+      rating: 5,
+    },
+    {
+      name: "Gen AI",
+      icon: "🧠",
+      color: "text-purple-600 dark:text-purple-400",
+      rating: 3,
+    },
+    // Frameworks & Libraries
+    {
+      name: "Express.js",
+      icon: "𝓔",
+      color: "text-gray-700 dark:text-gray-300",
+      rating: 5,
+    },
+    {
+      name: "NestJS",
+      icon: "🪺",
+      color: "text-red-600 dark:text-red-400",
+      rating: 4,
+    },
+    {
+      name: "FastAPI",
+      icon: "⚡",
+      color: "text-teal-600 dark:text-teal-400",
+      rating: 3,
+    },
+    {
+      name: "React.js",
+      icon: "⚛️",
+      color: "text-blue-500 dark:text-blue-400",
+      rating: 4,
+    },
+    {
+      name: "PM2",
+      icon: "⚙️",
+      color: "text-blue-500 dark:text-blue-400",
+      rating: 4,
+    },
+    // Frontend Technologies
+    {
+      name: "JavaScript",
+      icon: "𝙅𝙎",
+      color: "text-yellow-500 dark:text-yellow-400",
+      rating: 5,
+    },
+    {
+      name: "TypeScript",
+      icon: "𝗧𝗦",
+      color: "text-blue-600 dark:text-blue-400",
+      rating: 4,
+    },
+    {
+      name: "Tailwind CSS",
+      icon: "🌊",
+      color: "text-cyan-500 dark:text-cyan-400",
+      rating: 4,
+    },
+    {
+      name: "HTML5",
+      icon: "🔱",
+      color: "text-orange-500 dark:text-orange-400",
+      rating: 5,
+    },
+    {
+      name: "CSS3",
+      icon: "🎨",
+      color: "text-blue-600 dark:text-blue-400",
+      rating: 4,
+    },
+    // DevOps & Tools
+    {
+      name: "Git",
+      icon: "🌿",
+      color: "text-red-500 dark:text-red-400",
+      rating: 4,
+    },
+    {
+      name: "GitHub",
+      icon: "🐱",
+      color: "text-gray-700 dark:text-gray-300",
+      rating: 4,
+    },
+    {
+      name: "AWS",
+      icon: "☁️",
+      color: "text-orange-500 dark:text-orange-400",
+      rating: 3,
+    },
+    {
+      name: "Docker",
+      icon: "🐳",
+      color: "text-blue-600 dark:text-blue-400",
+      rating: 3,
+    },
+  ];
 
   // Project data
   const projects = [
@@ -180,11 +176,11 @@ const HomePage: React.FC = () => {
   // Helper function to render star ratings
   const renderStars = (rating: number) => {
     return (
-      <div className="flex justify-center mt-2">
+      <div className="flex mt-1">
         {[1, 2, 3, 4, 5].map((star) => (
           <span
             key={star}
-            className={`text-sm ${
+            className={`text-xs ${
               star <= rating
                 ? "text-yellow-400"
                 : "text-gray-300 dark:text-gray-600"
@@ -197,34 +193,20 @@ const HomePage: React.FC = () => {
     );
   };
 
-  // Helper function to render a section title
-  const renderSectionTitle = (title: string) => (
-    <div className="flex items-center justify-center mb-8">
-      <div className="h-0.5 bg-gray-200 dark:bg-gray-700 w-16 md:w-24"></div>
-      <h3 className="text-xl md:text-2xl font-bold mx-4 py-2 px-6 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg shadow-md">
-        {title}
-      </h3>
-      <div className="h-0.5 bg-gray-200 dark:bg-gray-700 w-16 md:w-24"></div>
-    </div>
-  );
-
   // Helper function to render a skill card
-  const renderSkillCard = (
-    skill: (typeof skills.backend)[0],
-    index: number
-  ) => (
+  const renderSkillCard = (skill: (typeof skills)[0], index: number) => (
     <div
       key={index}
-      className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group border border-gray-100 dark:border-gray-700"
+      className="bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-700 flex items-center p-3"
     >
-      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-750 p-4 flex justify-center items-center h-24">
+      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-750 p-2 rounded-lg mr-3 flex-shrink-0">
         <span
-          className={`text-4xl ${skill.color} group-hover:scale-110 transform transition-transform duration-300`}
+          className={`text-2xl ${skill.color} group-hover:scale-110 transform transition-transform duration-300`}
         >
           {skill.icon}
         </span>
       </div>
-      <div className="px-3 py-3 text-center">
+      <div className="flex flex-col">
         <h3 className="font-medium text-gray-800 dark:text-gray-200 text-sm">
           {skill.name}
         </h3>
@@ -425,46 +407,12 @@ const HomePage: React.FC = () => {
 
       {/* Skills & Technologies */}
       <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
           Skills & Technologies
         </h2>
 
-        {/* Backend Skills */}
-        <div className="mb-16">
-          {renderSectionTitle("Backend & Databases")}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {skills.backend.map((skill, index) =>
-              renderSkillCard(skill, index)
-            )}
-          </div>
-        </div>
-
-        {/* Framework Skills */}
-        <div className="mb-16">
-          {renderSectionTitle("Frameworks & Libraries")}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {skills.frameworks.map((skill, index) =>
-              renderSkillCard(skill, index)
-            )}
-          </div>
-        </div>
-
-        {/* Frontend Skills */}
-        <div className="mb-16">
-          {renderSectionTitle("Frontend Technologies")}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {skills.frontend.map((skill, index) =>
-              renderSkillCard(skill, index)
-            )}
-          </div>
-        </div>
-
-        {/* Others Skills */}
-        <div>
-          {renderSectionTitle("DevOps & Tools")}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {skills.others.map((skill, index) => renderSkillCard(skill, index))}
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          {skills.map((skill, index) => renderSkillCard(skill, index))}
         </div>
       </section>
 
