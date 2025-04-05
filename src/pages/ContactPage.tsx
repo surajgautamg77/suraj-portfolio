@@ -53,10 +53,10 @@ const ContactPage: React.FC = () => {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text gradient-text-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Get In Touch
         </h1>
-        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        {/* <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Have a project in mind or just want to chat? Feel free to reach out to
           me directly or fill out the form below.
-        </p>
+        </p> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">

@@ -109,10 +109,10 @@ const ProjectsPage: React.FC = () => {
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text gradient-text-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           My Projects
         </h1>
-        <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        {/* <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
           Here are some of the notable projects I've worked on throughout my
           career. Each project represents a unique challenge and solution.
-        </p>
+        </p> */}
       </div>
 
       {/* Projects Grid */}

@@ -259,10 +259,10 @@ const HomePage: React.FC = () => {
         className={`bg-white dark:bg-gray-800 rounded-lg shadow-blue hover:shadow-blue-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700 flex items-center p-3 hover-lift animate-fade-in ${delayClass}`}
       >
         <div
-          className={`bg-gradient-to-br ${gradientBg} dark:from-gray-800 dark:to-gray-750 p-2 rounded-lg mr-3 flex-shrink-0`}
+          className={`bg-gradient-to-br  ${gradientBg} dark:from-gray-800 dark:to-gray-750 p-2 rounded-lg mr-3 flex-shrink-0 dark:bg-gray-700`}
         >
           <span
-            className={`text-2xl ${skill.color} transform transition-transform duration-300`}
+            className={`text-2xl ${skill.color} transform  transition-transform duration-300`}
           >
             {skill.icon}
           </span>
@@ -459,7 +459,7 @@ const HomePage: React.FC = () => {
             </p>
             <div className="py-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
-                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
+                <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
                   <h4 className="font-medium text-blue-700 dark:text-blue-400">
                     PharynxAI Innovations{" "}
                     <span className="text-gray-500 dark:text-gray-400 text-sm">
@@ -471,7 +471,7 @@ const HomePage: React.FC = () => {
                     (NestJS, Python, RAG)
                   </p>
                 </div>
-                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
+                <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
                   <h4 className="font-medium text-blue-700 dark:text-blue-400">
                     Gortnm Innovations{" "}
                     <span className="text-gray-500 dark:text-gray-400 text-sm">
