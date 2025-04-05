@@ -90,33 +90,113 @@ const HomePage: React.FC = () => {
           Skills & Technologies
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
-          {[
-            { name: "Node.js", icon: "devicon-nodejs-plain" },
-            { name: "Express.js", icon: "devicon-express-original" },
-            { name: "MongoDB", icon: "devicon-mongodb-plain" },
-            { name: "React.js", icon: "devicon-react-original" },
-            { name: "JavaScript", icon: "devicon-javascript-plain" },
-            { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
-            { name: "HTML5", icon: "devicon-html5-plain" },
-            { name: "CSS3", icon: "devicon-css3-plain" },
-            { name: "Git", icon: "devicon-git-plain" },
-            { name: "GitHub", icon: "devicon-github-plain" },
-            { name: "AWS S3", icon: "devicon-amazonwebservices-original" },
-            { name: "PM2", icon: "devicon-pm2-plain" },
-          ].map((skill, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700"
-            >
-              {/* For simplicity, using a placeholder color block instead of actual icons */}
-              <div className="bg-blue-100 dark:bg-blue-900/30 p-4 inline-block rounded-lg mb-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-md"></div>
-              </div>
-              <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-                {skill.name}
-              </h3>
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-green-600 dark:text-green-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">⬢</span>
             </div>
-          ))}
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              Node.js
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-gray-600 dark:text-gray-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">𝓔</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              Express.js
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-green-500 dark:text-green-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">🍃</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              MongoDB
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-500 dark:text-blue-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">⚛️</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              React.js
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-yellow-500 dark:text-yellow-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">𝙅𝙎</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              JavaScript
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-cyan-500 dark:text-cyan-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">🌊</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              Tailwind CSS
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">🔱</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              HTML5
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">🎨</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              CSS3
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-red-500 dark:text-red-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">🌿</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              Git
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-gray-700 dark:text-gray-300 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">🐱</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              GitHub
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">☁️</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              AWS S3
+            </h3>
+          </div>
+
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
+            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-500 dark:text-blue-400 p-4 inline-block rounded-lg mb-4">
+              <span className="text-3xl">⚙️</span>
+            </div>
+            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
+              PM2
+            </h3>
+          </div>
         </div>
       </section>
 
