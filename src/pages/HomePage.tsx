@@ -2,6 +2,345 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
+  // Group skills by category with ratings
+  const skills = {
+    backend: [
+      {
+        name: "Node.js",
+        icon: "⬢",
+        color: "text-green-600 dark:text-green-400",
+        rating: 5,
+      },
+      {
+        name: "Python",
+        icon: "🐍",
+        color: "text-blue-700 dark:text-blue-400",
+        rating: 4,
+      },
+      {
+        name: "PostgreSQL",
+        icon: "🐘",
+        color: "text-blue-800 dark:text-blue-400",
+        rating: 4,
+      },
+      {
+        name: "MongoDB",
+        icon: "🍃",
+        color: "text-green-500 dark:text-green-400",
+        rating: 5,
+      },
+      {
+        name: "Gen AI",
+        icon: "🧠",
+        color: "text-purple-600 dark:text-purple-400",
+        rating: 3,
+      },
+    ],
+    frameworks: [
+      {
+        name: "Express.js",
+        icon: "𝓔",
+        color: "text-gray-700 dark:text-gray-300",
+        rating: 5,
+      },
+      {
+        name: "NestJS",
+        icon: "🪺",
+        color: "text-red-600 dark:text-red-400",
+        rating: 4,
+      },
+      {
+        name: "FastAPI",
+        icon: "⚡",
+        color: "text-teal-600 dark:text-teal-400",
+        rating: 3,
+      },
+      {
+        name: "React.js",
+        icon: "⚛️",
+        color: "text-blue-500 dark:text-blue-400",
+        rating: 4,
+      },
+      {
+        name: "PM2",
+        icon: "⚙️",
+        color: "text-blue-500 dark:text-blue-400",
+        rating: 4,
+      },
+    ],
+    frontend: [
+      {
+        name: "JavaScript",
+        icon: "𝙅𝙎",
+        color: "text-yellow-500 dark:text-yellow-400",
+        rating: 5,
+      },
+      {
+        name: "TypeScript",
+        icon: "𝗧𝗦",
+        color: "text-blue-600 dark:text-blue-400",
+        rating: 4,
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "🌊",
+        color: "text-cyan-500 dark:text-cyan-400",
+        rating: 4,
+      },
+      {
+        name: "HTML5",
+        icon: "🔱",
+        color: "text-orange-500 dark:text-orange-400",
+        rating: 5,
+      },
+      {
+        name: "CSS3",
+        icon: "🎨",
+        color: "text-blue-600 dark:text-blue-400",
+        rating: 4,
+      },
+    ],
+    others: [
+      {
+        name: "Git",
+        icon: "🌿",
+        color: "text-red-500 dark:text-red-400",
+        rating: 4,
+      },
+      {
+        name: "GitHub",
+        icon: "🐱",
+        color: "text-gray-700 dark:text-gray-300",
+        rating: 4,
+      },
+      {
+        name: "AWS",
+        icon: "☁️",
+        color: "text-orange-500 dark:text-orange-400",
+        rating: 3,
+      },
+      {
+        name: "Docker",
+        icon: "🐳",
+        color: "text-blue-600 dark:text-blue-400",
+        rating: 3,
+      },
+    ],
+  };
+
+  // Project data
+  const projects = [
+    {
+      title: "Kings Club Games",
+      description:
+        "Comprehensive software solution for KingsClub, enabling users to play various games and win money, with administrative tools for managing games and users.",
+      image:
+        "https://via.placeholder.com/600x400/4F46E5/FFFFFF?text=Kings+Club",
+      tags: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "React.js",
+        "Tailwind CSS",
+        "AWS S3",
+      ],
+      liveUrl: "https://kingsclub.games/",
+      hasLiveSite: true,
+    },
+    {
+      title: "Hadabon (Web and Mobile Application)",
+      description:
+        "An application that allows users to capture photos to identify skin problems, track improvement, book doctor appointments, and purchase beauty products.",
+      image: "https://via.placeholder.com/600x400/10B981/FFFFFF?text=Hadabon",
+      tags: ["Node.js", "Express.js", "MongoDB", "API Integration"],
+      liveUrl: "https://www.hadabon.jp/",
+      playStoreUrl:
+        "https://play.google.com/store/apps/details?id=com.aquaage.hadabon",
+      hasPlayStore: true,
+    },
+    {
+      title: "E-Commerce Platform",
+      description:
+        "A fully-featured online store with product catalog, shopping cart, user authentication, payment integration, and admin dashboard for inventory management.",
+      image:
+        "https://via.placeholder.com/600x400/EC4899/FFFFFF?text=E-Commerce",
+      tags: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "React.js",
+        "Redux",
+        "Payment Gateway",
+      ],
+      githubUrl: "https://github.com/surajgautam27/ecommerce-platform",
+      hasGithub: true,
+    },
+  ];
+
+  // Helper function to render star ratings
+  const renderStars = (rating: number) => {
+    return (
+      <div className="flex justify-center mt-2">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <span
+            key={star}
+            className={`text-sm ${
+              star <= rating
+                ? "text-yellow-400"
+                : "text-gray-300 dark:text-gray-600"
+            }`}
+          >
+            ★
+          </span>
+        ))}
+      </div>
+    );
+  };
+
+  // Helper function to render a section title
+  const renderSectionTitle = (title: string) => (
+    <div className="flex items-center justify-center mb-8">
+      <div className="h-0.5 bg-gray-200 dark:bg-gray-700 w-16 md:w-24"></div>
+      <h3 className="text-xl md:text-2xl font-bold mx-4 py-2 px-6 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-lg shadow-md">
+        {title}
+      </h3>
+      <div className="h-0.5 bg-gray-200 dark:bg-gray-700 w-16 md:w-24"></div>
+    </div>
+  );
+
+  // Helper function to render a skill card
+  const renderSkillCard = (
+    skill: (typeof skills.backend)[0],
+    index: number
+  ) => (
+    <div
+      key={index}
+      className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 group border border-gray-100 dark:border-gray-700"
+    >
+      <div className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-750 p-4 flex justify-center items-center h-24">
+        <span
+          className={`text-4xl ${skill.color} group-hover:scale-110 transform transition-transform duration-300`}
+        >
+          {skill.icon}
+        </span>
+      </div>
+      <div className="px-3 py-3 text-center">
+        <h3 className="font-medium text-gray-800 dark:text-gray-200 text-sm">
+          {skill.name}
+        </h3>
+        {renderStars(skill.rating)}
+      </div>
+    </div>
+  );
+
+  // Helper function to render a project card
+  const renderProjectCard = (project: (typeof projects)[0], index: number) => (
+    <div
+      key={index}
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden dark:border dark:border-gray-700 flex flex-col h-full"
+    >
+      <div className="h-48 md:h-56 overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
+      </div>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+          {project.title}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.tags.map((tag, tagIndex) => (
+            <span
+              key={tagIndex}
+              className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-3 mt-auto">
+          {project.hasLiveSite && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
+            >
+              Live Site
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          )}
+          {project.hasPlayStore && (
+            <a
+              href={project.playStoreUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
+            >
+              Google Play
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          )}
+          {project.hasGithub && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-white bg-gray-800 hover:bg-gray-900 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
+            >
+              GitHub
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4 ml-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <>
       {/* Hero Section */}
@@ -86,116 +425,45 @@ const HomePage: React.FC = () => {
 
       {/* Skills & Technologies */}
       <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
           Skills & Technologies
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 md:gap-8">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-green-600 dark:text-green-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">⬢</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              Node.js
-            </h3>
-          </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-gray-600 dark:text-gray-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">𝓔</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              Express.js
-            </h3>
+        {/* Backend Skills */}
+        <div className="mb-16">
+          {renderSectionTitle("Backend & Databases")}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {skills.backend.map((skill, index) =>
+              renderSkillCard(skill, index)
+            )}
           </div>
+        </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-green-500 dark:text-green-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">🍃</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              MongoDB
-            </h3>
+        {/* Framework Skills */}
+        <div className="mb-16">
+          {renderSectionTitle("Frameworks & Libraries")}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {skills.frameworks.map((skill, index) =>
+              renderSkillCard(skill, index)
+            )}
           </div>
+        </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-500 dark:text-blue-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">⚛️</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              React.js
-            </h3>
+        {/* Frontend Skills */}
+        <div className="mb-16">
+          {renderSectionTitle("Frontend Technologies")}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {skills.frontend.map((skill, index) =>
+              renderSkillCard(skill, index)
+            )}
           </div>
+        </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-yellow-500 dark:text-yellow-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">𝙅𝙎</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              JavaScript
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-cyan-500 dark:text-cyan-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">🌊</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              Tailwind CSS
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">🔱</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              HTML5
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">🎨</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              CSS3
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-red-500 dark:text-red-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">🌿</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              Git
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-gray-700 dark:text-gray-300 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">🐱</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              GitHub
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-orange-500 dark:text-orange-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">☁️</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              AWS S3
-            </h3>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transform transition-all duration-300 hover:-translate-y-1 text-center border border-gray-100 dark:border-gray-700">
-            <div className="bg-blue-100 dark:bg-blue-900/30 text-blue-500 dark:text-blue-400 p-4 inline-block rounded-lg mb-4">
-              <span className="text-3xl">⚙️</span>
-            </div>
-            <h3 className="text-gray-800 dark:text-gray-200 font-medium">
-              PM2
-            </h3>
+        {/* Others Skills */}
+        <div>
+          {renderSectionTitle("DevOps & Tools")}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {skills.others.map((skill, index) => renderSkillCard(skill, index))}
           </div>
         </div>
       </section>
@@ -208,145 +476,8 @@ const HomePage: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
           Featured Projects
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden dark:border dark:border-gray-700 flex flex-col h-full">
-            <div className="h-56 overflow-hidden">
-              <img
-                src="https://via.placeholder.com/600x400/4F46E5/FFFFFF?text=Kings+Club"
-                alt="Kings Club Games"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-                Kings Club Games
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                Comprehensive software solution for KingsClub, enabling users to
-                play various games and win money, with administrative tools for
-                managing games and users.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {[
-                  "Node.js",
-                  "Express.js",
-                  "MongoDB",
-                  "React.js",
-                  "Tailwind CSS",
-                  "AWS S3",
-                ].map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <div className="flex gap-3 mt-auto">
-                <a
-                  href="https://kingsclub.games/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
-                >
-                  Live Site
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden dark:border dark:border-gray-700 flex flex-col h-full">
-            <div className="h-56 overflow-hidden">
-              <img
-                src="https://via.placeholder.com/600x400/10B981/FFFFFF?text=Hadabon"
-                alt="Hadabon App"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
-            </div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-                Hadabon (Web and Mobile Application)
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-                An application that allows users to capture photos to identify
-                skin problems, track improvement, book doctor appointments, and
-                purchase beauty products.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {["Node.js", "Express.js", "MongoDB", "API Integration"].map(
-                  (tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
-              </div>
-              <div className="flex gap-3 mt-auto">
-                <a
-                  href="https://www.hadabon.jp/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
-                >
-                  Visit Website
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.aquaage.hadabon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
-                >
-                  Google Play
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {projects.map((project, index) => renderProjectCard(project, index))}
         </div>
         <div className="text-center mt-10 md:mt-12">
           <Link
