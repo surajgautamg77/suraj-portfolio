@@ -2,6 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AboutPage: React.FC = () => {
+  // Add useEffect for scroll animations
+  React.useEffect(() => {
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const reveal = () => {
+      for (let i = 0; i < revealElements.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = revealElements[i].getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          revealElements[i].classList.add("active");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", reveal);
+    // Initial check on load
+    reveal();
+
+    // Cleanup
+    return () => window.removeEventListener("scroll", reveal);
+  }, []);
+
   // Education data
   const education = [
     {
@@ -104,24 +128,24 @@ const AboutPage: React.FC = () => {
   return (
     <div className="py-8 px-4 md:px-8 max-w-6xl mx-auto">
       {/* About Header */}
-      <div className="mb-8 text-center">
+      <div className="mb-8 text-center animate-fade-in">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text gradient-text-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           About Me
         </h1>
       </div>
 
       {/* Profile Overview */}
-      <section className="mb-16">
-        <div className="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700">
+      <section className="mb-16 reveal">
+        <div className="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700 hover-lift">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-blue-lg bg-gradient-primary">
+            <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-blue-lg bg-gradient-primary animate-float">
               <img
                 src="/assets/profile.jpg"
                 alt="Suraj Gautam"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-center md:text-left animate-slide-in-right delay-200">
               <h2 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800 dark:text-gray-100">
                 Suraj Gautam
               </h2>
@@ -149,7 +173,7 @@ const AboutPage: React.FC = () => {
                   </h4>
                   <a
                     href="mailto:surajgautamg77@gmail.com"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-blue-600 dark:text-blue-400 hover-underline"
                   >
                     surajgautamg77@gmail.com
                   </a>
@@ -163,7 +187,7 @@ const AboutPage: React.FC = () => {
                       href="https://github.com/surajgautam27"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover-grow"
                     >
                       GitHub
                     </a>
@@ -172,7 +196,7 @@ const AboutPage: React.FC = () => {
                       href="https://www.linkedin.com/in/suraj-gautam-897284184/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                      className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover-grow"
                     >
                       LinkedIn
                     </a>
@@ -185,7 +209,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Work Experience */}
-      <section className="mb-16">
+      <section className="mb-16 reveal">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Professional Experience
         </h2>
@@ -194,7 +218,7 @@ const AboutPage: React.FC = () => {
           {workExperience.map((job, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift animate-fade-in delay-300"
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                 <div>
@@ -247,7 +271,7 @@ const AboutPage: React.FC = () => {
                   {job.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
                     >
                       {skill}
                     </span>
@@ -260,13 +284,13 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="mb-16">
+      <section className="mb-16 reveal">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-accent dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Technical Skills
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
               Frontend Development
             </h3>
@@ -274,7 +298,7 @@ const AboutPage: React.FC = () => {
               {skills.frontend.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
                 >
                   {skill}
                 </span>
@@ -282,7 +306,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
               Backend Development
             </h3>
@@ -290,7 +314,7 @@ const AboutPage: React.FC = () => {
               {skills.backend.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
                 >
                   {skill}
                 </span>
@@ -298,7 +322,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
               AI & Data Solutions
             </h3>
@@ -306,7 +330,7 @@ const AboutPage: React.FC = () => {
               {skills.aiAndData.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
                 >
                   {skill}
                 </span>
@@ -314,7 +338,7 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700">
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
             <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
               Tools & Technologies
             </h3>
@@ -322,7 +346,7 @@ const AboutPage: React.FC = () => {
               {skills.tools.map((skill, index) => (
                 <span
                   key={index}
-                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
+                  className="px-3 py-1 text-sm font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
                 >
                   {skill}
                 </span>
@@ -333,7 +357,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Education Section */}
-      <section className="mb-16">
+      <section className="mb-16 reveal">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Education
         </h2>
@@ -341,7 +365,7 @@ const AboutPage: React.FC = () => {
         {education.map((edu, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700"
+            className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift"
           >
             <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
               <div>
@@ -369,12 +393,12 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Interests Section */}
-      <section className="mb-16">
+      <section className="mb-16 reveal">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-accent dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Interests & Personal Projects
         </h2>
 
-        <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700">
+        <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             Beyond my professional work, I enjoy exploring new technologies and
             working on personal projects. Some of my recent interests include:
@@ -391,8 +415,8 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="text-center">
-        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg">
+      <section className="reveal">
+        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg hover-lift">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Interested in Working Together?
           </h2>
@@ -402,7 +426,7 @@ const AboutPage: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
+            className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105 animate-pulse-slow"
           >
             Get in Touch
           </Link>

@@ -2,6 +2,30 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HomePage: React.FC = () => {
+  // Add useEffect for scroll animations
+  React.useEffect(() => {
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const reveal = () => {
+      for (let i = 0; i < revealElements.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = revealElements[i].getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          revealElements[i].classList.add("active");
+        }
+      }
+    };
+
+    window.addEventListener("scroll", reveal);
+    // Initial check on load
+    reveal();
+
+    // Cleanup
+    return () => window.removeEventListener("scroll", reveal);
+  }, []);
+
   // Group skills by category with ratings
   const skills = [
     // Backend & Databases
@@ -226,16 +250,19 @@ const HomePage: React.FC = () => {
         ? "from-blue-50 to-gray-100"
         : "from-gray-100 to-gray-200";
 
+    // Calculate animation delay based on index for staggered effect
+    const delayClass = `delay-${Math.min(index % 8, 7) * 100}`;
+
     return (
       <div
         key={index}
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-blue hover:shadow-blue-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700 flex items-center p-3"
+        className={`bg-white dark:bg-gray-800 rounded-lg shadow-blue hover:shadow-blue-md transition-all duration-300 transform hover:-translate-y-1 border border-gray-200 dark:border-gray-700 flex items-center p-3 hover-lift animate-fade-in ${delayClass}`}
       >
         <div
           className={`bg-gradient-to-br ${gradientBg} dark:from-gray-800 dark:to-gray-750 p-2 rounded-lg mr-3 flex-shrink-0`}
         >
           <span
-            className={`text-2xl ${skill.color} group-hover:scale-110 transform transition-transform duration-300`}
+            className={`text-2xl ${skill.color} transform transition-transform duration-300`}
           >
             {skill.icon}
           </span>
@@ -251,114 +278,119 @@ const HomePage: React.FC = () => {
   };
 
   // Helper function to render a project card
-  const renderProjectCard = (project: (typeof projects)[0], index: number) => (
-    <div
-      key={index}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-blue-md hover:shadow-blue-lg transition-all duration-300 overflow-hidden dark:border dark:border-gray-700 flex flex-col h-full border border-gray-200"
-    >
-      <div className="h-48 md:h-56 overflow-hidden">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
-      </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
-          {project.title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag, tagIndex) => (
-            <span
-              key={tagIndex}
-              className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400"
-            >
-              {tag}
-            </span>
-          ))}
+  const renderProjectCard = (project: (typeof projects)[0], index: number) => {
+    // Calculate animation delay based on index
+    const delayClass = `delay-${Math.min(index * 200, 600)}`;
+
+    return (
+      <div
+        key={index}
+        className={`bg-white dark:bg-gray-800 rounded-xl shadow-blue-md hover:shadow-blue-lg transition-all duration-300 overflow-hidden dark:border dark:border-gray-700 flex flex-col h-full border border-gray-200 hover-lift animate-fade-in ${delayClass}`}
+      >
+        <div className="h-48 md:h-56 overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          />
         </div>
-        <div className="flex gap-3 mt-auto">
-          {project.hasLiveSite && (
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center text-white ${
-                project.theme || "btn-primary"
-              } hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center`}
-            >
-              Live Site
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 ml-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+            {project.title}
+          </h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">
+            {project.description}
+          </p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tags.map((tag, tagIndex) => (
+              <span
+                key={tagIndex}
+                className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          )}
-          {project.hasPlayStore && (
-            <a
-              href={project.playStoreUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
-            >
-              Google Play
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 ml-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-3 mt-auto">
+            {project.hasLiveSite && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center text-white ${
+                  project.theme || "btn-primary"
+                } hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center hover-grow`}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          )}
-          {project.hasGithub && (
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-white bg-gray-800 hover:bg-gray-900 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center"
-            >
-              GitHub
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 ml-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+                Live Site
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            )}
+            {project.hasPlayStore && (
+              <a
+                href={project.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center hover-grow"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </a>
-          )}
+                Google Play
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            )}
+            {project.hasGithub && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-white bg-gray-800 hover:bg-gray-900 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center hover-grow"
+              >
+                GitHub
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </a>
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <>
@@ -368,17 +400,17 @@ const HomePage: React.FC = () => {
         className="py-16 md:py-28 px-4 md:px-8 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16"
       >
         <div className="md:w-1/2 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 md:mb-8 leading-tight animate-slide-in-left">
             <span className="text-gray-800 dark:text-gray-100">Hi, I'm </span>
             <span className="text-transparent bg-clip-text gradient-text-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
               Suraj Gautam
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 md:mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 md:mb-10 leading-relaxed animate-slide-in-left delay-200">
             MERN Stack Developer specialized in building reliable web
             applications with clean, efficient code.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          <div className="flex flex-wrap gap-4 justify-center md:justify-start animate-slide-in-left delay-400">
             <Link
               to="/contact"
               className="inline-block w-40 md:w-48 text-center bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-3 md:py-4 px-8 md:px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
@@ -393,8 +425,8 @@ const HomePage: React.FC = () => {
             </a>
           </div>
         </div>
-        <div className="md:w-1/2 flex justify-center">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-primary dark:bg-gradient-to-br dark:from-blue-500 dark:to-cyan-500 relative overflow-hidden shadow-blue-lg border-4 border-white dark:border-gray-800">
+        <div className="md:w-1/2 flex justify-center animate-slide-in-right delay-300">
+          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-primary dark:bg-gradient-to-br dark:from-blue-500 dark:to-cyan-500 relative overflow-hidden shadow-blue-lg border-4 border-white dark:border-gray-800 animate-float">
             {/* Replace with your actual profile image */}
             <img
               src="https://via.placeholder.com/320x320/2563EB/FFFFFF?text=SG"
@@ -406,8 +438,8 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* About Me Short Section */}
-      <section className="py-10 md:py-12 px-4 md:px-8 max-w-6xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 p-5 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700">
+      <section className="py-10 md:py-12 px-4 md:px-8 max-w-6xl mx-auto reveal">
+        <div className="bg-white dark:bg-gray-800 p-5 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700 hover-lift">
           <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-5 text-center text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
             About Me
           </h2>
@@ -415,11 +447,11 @@ const HomePage: React.FC = () => {
             <p className="text-sm md:text-base">
               MERN stack and AI developer with 3+ years experience building web
               applications and intelligent systems at{" "}
-              <span className="text-blue-600 dark:text-blue-400 font-medium">
+              <span className="text-blue-600 dark:text-blue-400 font-medium highlight-on-hover">
                 PharynxAI Innovations
               </span>{" "}
               and
-              <span className="text-blue-600 dark:text-blue-400 font-medium">
+              <span className="text-blue-600 dark:text-blue-400 font-medium highlight-on-hover">
                 {" "}
                 Gortnm Innovations
               </span>
@@ -427,7 +459,7 @@ const HomePage: React.FC = () => {
             </p>
             <div className="py-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
-                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700">
+                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
                   <h4 className="font-medium text-blue-700 dark:text-blue-400">
                     PharynxAI Innovations{" "}
                     <span className="text-gray-500 dark:text-gray-400 text-sm">
@@ -439,7 +471,7 @@ const HomePage: React.FC = () => {
                     (NestJS, Python, RAG)
                   </p>
                 </div>
-                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700">
+                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
                   <h4 className="font-medium text-blue-700 dark:text-blue-400">
                     Gortnm Innovations{" "}
                     <span className="text-gray-500 dark:text-gray-400 text-sm">
@@ -457,7 +489,7 @@ const HomePage: React.FC = () => {
           <div className="mt-4 text-center">
             <Link
               to="/about"
-              className="inline-block accent-blue hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover-underline-animation"
+              className="inline-block accent-blue hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover-underline"
             >
               View my complete profile →
             </Link>
@@ -466,7 +498,7 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Skills & Technologies */}
-      <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto">
+      <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto reveal">
         <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center text-transparent bg-clip-text gradient-text-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Skills & Technologies
         </h2>
@@ -479,7 +511,7 @@ const HomePage: React.FC = () => {
       {/* Featured Projects Preview */}
       <section
         id="projects"
-        className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto"
+        className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto reveal"
       >
         <h2 className="text-3xl md:text-4xl font-bold mb-12 md:mb-16 text-center text-transparent bg-clip-text gradient-text-accent dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Featured Projects
@@ -490,7 +522,7 @@ const HomePage: React.FC = () => {
         <div className="text-center mt-10 md:mt-12">
           <Link
             to="/projects"
-            className="inline-block border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-900 hover:text-white py-3 px-8 rounded-lg transition-colors duration-300"
+            className="inline-block border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-900 hover:text-white py-3 px-8 rounded-lg transition-colors duration-300 hover-grow"
           >
             View All Projects
           </Link>
@@ -498,8 +530,8 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-16 md:py-20 px-4 md:px-8 max-w-6xl mx-auto text-center">
-        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg">
+      <section className="py-16 md:py-20 px-4 md:px-8 max-w-6xl mx-auto text-center reveal">
+        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg hover-lift">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Let's Work Together
           </h2>
@@ -510,7 +542,7 @@ const HomePage: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
+            className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105 animate-pulse-slow"
           >
             Contact Me
           </Link>

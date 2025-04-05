@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-gray-950 mt-20 py-10 px-4 md:px-8 text-center text-gray-600 dark:text-gray-400 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <footer className="bg-gray-100 dark:bg-gray-950 mt-20 py-10 px-4 md:px-8 text-center text-gray-600 dark:text-gray-400 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 reveal">
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-10 text-left">
-        <div>
+        <div className="animate-slide-up delay-100">
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Suraj Gautam
           </h3>
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
             experiences with clean, efficient code.
           </p>
         </div>
-        <div>
+        <div className="animate-slide-up delay-200">
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Quick Links
           </h3>
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
             <li>
               <Link
                 to="/"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover-underline"
               >
                 Home
               </Link>
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
             <li>
               <Link
                 to="/projects"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover-underline"
               >
                 Projects
               </Link>
@@ -38,7 +38,7 @@ const Footer: React.FC = () => {
             <li>
               <Link
                 to="/about"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover-underline"
               >
                 About
               </Link>
@@ -46,14 +46,14 @@ const Footer: React.FC = () => {
             <li>
               <Link
                 to="/contact"
-                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover-underline"
               >
                 Contact
               </Link>
             </li>
           </ul>
         </div>
-        <div>
+        <div className="animate-slide-up delay-300">
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Connect
           </h3>
@@ -62,7 +62,7 @@ const Footer: React.FC = () => {
               href="https://github.com/surajgautam27"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover-grow"
               aria-label="GitHub"
             >
               <svg
@@ -82,7 +82,7 @@ const Footer: React.FC = () => {
               href="https://www.linkedin.com/in/suraj-gautam-897284184/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors hover-grow"
               aria-label="LinkedIn"
             >
               <svg
@@ -95,13 +95,15 @@ const Footer: React.FC = () => {
               </svg>
             </a>
           </div>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-gray-400 hover-underline inline-block">
             surajgautamg77@gmail.com
           </p>
-          <p className="text-gray-600 dark:text-gray-400">+91-9451306025</p>
+          <p className="text-gray-600 dark:text-gray-400 mt-1">
+            +91-9451306025
+          </p>
         </div>
       </div>
-      <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
+      <div className="pt-8 border-t border-gray-200 dark:border-gray-800 animate-fade-in delay-400">
         <p>© {new Date().getFullYear()} Suraj Gautam. All rights reserved.</p>
         <p className="text-sm mt-2 text-gray-500 dark:text-gray-500">
           Built with React, TypeScript, and Tailwind CSS
