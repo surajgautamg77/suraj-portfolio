@@ -81,14 +81,10 @@ const ProjectsPage: React.FC = () => {
   return (
     <>
       {/* Projects Header */}
-      <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
+      <section className="py-8 px-4 md:px-8 max-w-6xl mx-auto">
+        <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 gradient-text">
           My Projects
         </h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center mb-12">
-          A showcase of my work spanning web development, API design, and
-          full-stack applications.
-        </p>
       </section>
 
       {/* Featured Projects */}

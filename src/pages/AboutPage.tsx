@@ -102,16 +102,12 @@ const AboutPage: React.FC = () => {
   };
 
   return (
-    <div className="py-16 px-4 md:px-8 max-w-6xl mx-auto">
+    <div className="py-8 px-4 md:px-8 max-w-6xl mx-auto">
       {/* About Header */}
-      <div className="mb-16 text-center">
+      <div className="mb-8 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-transparent bg-clip-text gradient-text-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           About Me
         </h1>
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Software developer specializing in web applications and AI solutions
-          with over 3 years of professional experience
-        </p>
       </div>
 
       {/* Profile Overview */}
@@ -120,7 +116,7 @@ const AboutPage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-blue-lg bg-gradient-primary">
               <img
-                src="public\assets\images\prof"
+                src="/assets/profile.jpg"
                 alt="Suraj Gautam"
                 className="w-full h-full object-cover"
               />

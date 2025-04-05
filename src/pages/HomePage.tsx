@@ -381,13 +381,13 @@ const HomePage: React.FC = () => {
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Link
               to="/contact"
-              className="inline-block bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-3 md:py-4 px-8 md:px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
+              className="inline-block w-40 md:w-48 text-center bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-3 md:py-4 px-8 md:px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
             >
               Hire Me
             </Link>
             <a
               href="#projects"
-              className="inline-block border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-900 hover:text-white py-3 md:py-4 px-8 md:px-10 rounded-lg transition-colors duration-300"
+              className="inline-block w-40 md:w-48 text-center border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-900 hover:text-white py-3 md:py-4 px-8 md:px-10 rounded-lg transition-colors duration-300"
             >
               View Projects
             </a>
@@ -406,37 +406,60 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* About Me Short Section */}
-      <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
+      <section className="py-10 md:py-12 px-4 md:px-8 max-w-6xl mx-auto">
+        <div className="bg-white dark:bg-gray-800 p-5 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-5 text-center text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
             About Me
           </h2>
-          <div className="text-gray-600 dark:text-gray-300 space-y-4 leading-relaxed">
-            <p>
-              I'm a MERN stack developer with 2 years of experience building
-              backend APIs and full-stack web applications. I've had the
-              opportunity to work on impactful projects for clients like Physics
-              Wallah and Kings Club.
+          <div className="text-gray-600 dark:text-gray-300 space-y-3 leading-relaxed">
+            <p className="text-sm md:text-base">
+              MERN stack and AI developer with 3+ years experience building web
+              applications and intelligent systems at{" "}
+              <span className="text-blue-600 dark:text-blue-400 font-medium">
+                PharynxAI Innovations
+              </span>{" "}
+              and
+              <span className="text-blue-600 dark:text-blue-400 font-medium">
+                {" "}
+                Gortnm Innovations
+              </span>
+              .
             </p>
-            <p>
-              My expertise includes backend technologies such as Node.js,
-              Express.js, and MongoDB, as well as frontend technologies
-              including React.js, JavaScript, and Tailwind CSS. I'm passionate
-              about creating efficient, scalable solutions.
-            </p>
-            <p>
-              Based in Jaunpur, Uttar Pradesh, I earned my Bachelor of
-              Technology degree from Harcourt Butler Technical University,
-              Kanpur with a 7.15 CGPA. I'm eager to join a dynamic team and
-              contribute to meaningful projects.
-            </p>
+            <div className="py-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
+                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700">
+                  <h4 className="font-medium text-blue-700 dark:text-blue-400">
+                    PharynxAI Innovations{" "}
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                      | May 2024 - Present
+                    </span>
+                  </h4>
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-1">
+                    AI Developer - Resume parsers, document analyzers, chatbots
+                    (NestJS, Python, RAG)
+                  </p>
+                </div>
+                <div className="bg-blue-50 dark:bg-gray-750 p-3 rounded-lg border border-blue-100 dark:border-gray-700">
+                  <h4 className="font-medium text-blue-700 dark:text-blue-400">
+                    Gortnm Innovations{" "}
+                    <span className="text-gray-500 dark:text-gray-400 text-sm">
+                      | Jun 2022 - May 2024
+                    </span>
+                  </h4>
+                  <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300 mt-1">
+                    Full Stack Developer - Web apps for Kings Club, Physics
+                    Wallah (Node.js, React)
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="mt-8 text-center">
+          <div className="mt-4 text-center">
             <Link
               to="/about"
               className="inline-block accent-blue hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium hover-underline-animation"
             >
-              Learn more about me →
+              View my complete profile →
             </Link>
           </div>
         </div>
