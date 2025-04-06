@@ -214,19 +214,19 @@ const AboutPage: React.FC = () => {
           Professional Experience
         </h2>
 
-        <div className="space-y-8">
+        <div
+          // className="space-y-8"
+          className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift animate-fade-in delay-300 space-y-8"
+        >
           {workExperience.map((job, index) => (
-            <div
-              key={index}
-              className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift animate-fade-in delay-300"
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+            <div key={index}>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                    {job.position}
+                    {index + 1}- {job.position}
                   </h3>
                   <p className="text-blue-600 dark:text-blue-400 font-medium">
-                    {job.company}
+                    @ {job.company}
                   </p>
                   <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
                     {job.location} · {job.type}
@@ -236,11 +236,10 @@ const AboutPage: React.FC = () => {
                   {job.period}
                 </p>
               </div>
-
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <hr></hr>
+              <p className="text-gray-600 dark:text-gray-300 my-4">
                 {job.description}
               </p>
-
               <div className="mb-4">
                 <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                   Key Responsibilities
@@ -251,7 +250,6 @@ const AboutPage: React.FC = () => {
                   ))}
                 </ul>
               </div>
-
               <div className="mb-4">
                 <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                   Projects
@@ -262,7 +260,6 @@ const AboutPage: React.FC = () => {
                   ))}
                 </ul>
               </div>
-
               <div>
                 <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
                   Skills Used
@@ -278,6 +275,7 @@ const AboutPage: React.FC = () => {
                   ))}
                 </div>
               </div>
+              <div className="flex justify-center mt-4">(*_*)</div>
             </div>
           ))}
         </div>
