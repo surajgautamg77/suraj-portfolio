@@ -197,7 +197,7 @@ const HomePage: React.FC = () => {
       playStoreUrl:
         "https://play.google.com/store/apps/details?id=com.aquaage.hadabon",
       hasPlayStore: true,
-      theme: "bg-gradient-secondary",
+      theme: "bg-gradient-primary",
     },
     {
       title: "E-Commerce Platform",
@@ -215,7 +215,7 @@ const HomePage: React.FC = () => {
       ],
       githubUrl: "https://github.com/surajgautam27/ecommerce-platform",
       hasGithub: true,
-      theme: "bg-gradient-accent",
+      theme: "bg-gradient-primary",
     },
   ];
 
@@ -317,9 +317,7 @@ const HomePage: React.FC = () => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center text-white ${
-                  project.theme || "btn-primary"
-                } hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center hover-grow`}
+                className={`inline-flex items-center text-white  btn-primary hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center`}
               >
                 Live Site
                 <svg
@@ -343,7 +341,7 @@ const HomePage: React.FC = () => {
                 href={project.playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-gray-800 dark:text-gray-200 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center hover-grow"
+                className={`inline-flex items-center text-white  btn-primary hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center`}
               >
                 Google Play
                 <svg
@@ -367,7 +365,7 @@ const HomePage: React.FC = () => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-white bg-gray-800 hover:bg-gray-900 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center hover-grow"
+                className={`inline-flex items-center text-white  btn-primary hover:bg-blue-700 px-4 py-2 rounded-lg text-sm font-medium transition-colors flex-1 justify-center`}
               >
                 GitHub
                 <svg
@@ -459,7 +457,7 @@ const HomePage: React.FC = () => {
             </p>
             <div className="py-2">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2">
-                <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
+                <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-700 highlight-on-hover">
                   <h4 className="font-medium text-blue-700 dark:text-blue-400">
                     PharynxAI Innovations{" "}
                     <span className="text-gray-500 dark:text-gray-400 text-sm">
@@ -471,7 +469,7 @@ const HomePage: React.FC = () => {
                     (NestJS, Python, RAG)
                   </p>
                 </div>
-                <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-700 hover-grow">
+                <div className="bg-blue-50 dark:bg-gray-700 p-3 rounded-lg border border-blue-100 dark:border-gray-700 highlight-on-hover">
                   <h4 className="font-medium text-blue-700 dark:text-blue-400">
                     Gortnm Innovations{" "}
                     <span className="text-gray-500 dark:text-gray-400 text-sm">
