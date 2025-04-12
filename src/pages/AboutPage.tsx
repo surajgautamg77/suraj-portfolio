@@ -138,7 +138,7 @@ const AboutPage: React.FC = () => {
       <section className="mb-16 reveal">
         <div className="bg-white dark:bg-gray-800 p-6 md:p-10 rounded-xl shadow-blue hover:shadow-blue-md glass-effect dark:glass-dark border border-gray-200 dark:border-gray-700 hover-lift">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-            <div className="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 rounded-xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-blue-lg bg-gradient-primary animate-float">
+            <div className="w-56 h-56 md:w-80 md:h-80 flex-shrink-0 rounded-xl overflow-hidden border-4 border-white dark:border-gray-700 shadow-blue-lg bg-gradient-primary animate-float">
               <img
                 src="/assets/profile.jpg"
                 alt="Suraj Gautam"

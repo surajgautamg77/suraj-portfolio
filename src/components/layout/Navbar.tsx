@@ -117,6 +117,20 @@ const Navbar: React.FC = () => {
           About
         </Link>
         <Link
+          to="/blog"
+          className="py-2 px-4 md:px-0 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-300 border-b md:border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
+          onClick={() => setMenuOpen(false)}
+        >
+          Blog
+        </Link>
+        <Link
+          to="/gallery"
+          className="py-2 px-4 md:px-0 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-300 border-b md:border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
+          onClick={() => setMenuOpen(false)}
+        >
+          Gallery
+        </Link>
+        <Link
           to="/contact"
           className="py-2 px-4 md:px-0 hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400 transition-colors duration-300 border-b md:border-b-2 border-transparent hover:border-blue-600 dark:hover:border-blue-400"
           onClick={() => setMenuOpen(false)}
