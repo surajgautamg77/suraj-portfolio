@@ -173,8 +173,7 @@ const HomePage: React.FC = () => {
       title: "Kings Club Games",
       description:
         "Comprehensive software solution for KingsClub, enabling users to play various games and win money, with administrative tools for managing games and users.",
-      image:
-        "https://via.placeholder.com/600x400/2563EB/FFFFFF?text=Kings+Club",
+      image: "/images/projects/kings-club.jpg",
       tags: [
         "Node.js",
         "Express.js",
@@ -191,7 +190,7 @@ const HomePage: React.FC = () => {
       title: "Hadabon (Web and Mobile Application)",
       description:
         "An application that allows users to capture photos to identify skin problems, track improvement, book doctor appointments, and purchase beauty products.",
-      image: "https://via.placeholder.com/600x400/3B82F6/FFFFFF?text=Hadabon",
+      image: "/images/projects/hadabon.jpg",
       tags: ["Node.js", "Express.js", "MongoDB", "API Integration"],
       liveUrl: "https://www.hadabon.jp/",
       playStoreUrl:
@@ -203,8 +202,7 @@ const HomePage: React.FC = () => {
       title: "E-Commerce Platform",
       description:
         "A fully-featured online store with product catalog, shopping cart, user authentication, payment integration, and admin dashboard for inventory management.",
-      image:
-        "https://via.placeholder.com/600x400/1F2937/FFFFFF?text=E-Commerce",
+      image: "/images/projects/ecommerce.jpg",
       tags: [
         "Node.js",
         "Express.js",
@@ -427,7 +425,7 @@ const HomePage: React.FC = () => {
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-primary dark:bg-gradient-to-br dark:from-blue-500 dark:to-cyan-500 relative overflow-hidden shadow-blue-lg border-4 border-white dark:border-gray-800 animate-float">
             {/* Replace with your actual profile image */}
             <img
-              src="https://via.placeholder.com/320x320/2563EB/FFFFFF?text=SG"
+              src="/images/profile.jpg"
               alt="Suraj Gautam"
               className="w-full h-full object-cover"
             />
