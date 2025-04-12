@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-100 dark:bg-gray-950 mt-20 py-10 px-4 md:px-8 text-center text-gray-600 dark:text-gray-400 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 transition-colors duration-300 reveal">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-10 text-left">
-        <div className="animate-slide-up delay-100">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-10">
+        <div className="animate-slide-up delay-100 text-center sm:text-left">
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Suraj Gautam
           </h3>
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
             experiences with clean, efficient code.
           </p>
         </div>
-        <div className="animate-slide-up delay-200">
+        <div className="animate-slide-up delay-200 text-center sm:text-left">
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Quick Links
           </h3>
@@ -53,11 +53,11 @@ const Footer: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div className="animate-slide-up delay-300">
+        <div className="animate-slide-up delay-300 text-center sm:text-left">
           <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Connect
           </h3>
-          <div className="flex space-x-4 mb-4">
+          <div className="flex justify-center sm:justify-start space-x-4 mb-4">
             <a
               href="https://github.com/surajgautam27"
               target="_blank"
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
               </svg>
             </a>
           </div>
-          <p className="text-gray-600 dark:text-gray-400 hover-underline inline-block">
+          <p className="text-gray-600 dark:text-gray-400 hover-underline">
             surajgautamg77@gmail.com
           </p>
           <p className="text-gray-600 dark:text-gray-400 mt-1">

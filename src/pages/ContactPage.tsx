@@ -59,18 +59,21 @@ const ContactPage: React.FC = () => {
         </p> */}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 h-full">
         {/* Contact Form */}
-        <div className="reveal">
-          <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
-            <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
+        <div className="reveal h-full">
+          <div className="bg-white dark:bg-gray-800 p-8 md:p-10 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift h-full flex flex-col">
+            <h2 className="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-100">
               Send Me a Message
             </h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-6 flex flex-col flex-grow"
+            >
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Your Name
                 </label>
@@ -88,7 +91,7 @@ const ContactPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Email Address
                 </label>
@@ -103,10 +106,10 @@ const ContactPage: React.FC = () => {
                   placeholder="jane@example.com"
                 />
               </div>
-              <div>
+              <div className="flex-grow flex flex-col">
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Your Message
                 </label>
@@ -116,14 +119,14 @@ const ContactPage: React.FC = () => {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 transition-colors focus-within:shadow-blue-sm resize-none"
+                  className="w-full flex-grow px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 transition-colors focus-within:shadow-blue-sm"
                   placeholder="Tell me about your project, question, or say hello..."
+                  style={{ minHeight: "150px" }}
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full bg-gradient-primary hover:opacity-90 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-blue hover-lift"
+                className="w-full bg-gradient-primary hover:opacity-90 text-white font-medium py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-blue hover-lift mt-4"
               >
                 Send Message
               </button>
@@ -132,8 +135,11 @@ const ContactPage: React.FC = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="space-y-6 reveal" style={{ animationDelay: "150ms" }}>
-          <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
+        <div
+          className="reveal h-full flex flex-col"
+          style={{ animationDelay: "150ms" }}
+        >
+          <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift flex-grow">
             <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
               Contact Information
             </h2>
@@ -186,7 +192,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           {/* Social Profiles */}
-          <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift">
+          <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift mt-6">
             <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">
               Connect With Me
             </h2>

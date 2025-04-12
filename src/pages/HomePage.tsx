@@ -534,38 +534,6 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Availability Section */}
-      <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto reveal">
-        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg hover-lift">
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Currently Available for New Projects
-            </h2>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              I'm actively seeking new opportunities and collaborations. Whether
-              you have a project in mind or just want to connect, I'd love to
-              hear from you.
-            </p>
-            <div className="flex justify-center gap-4">
-              <a
-                href="mailto:surajgautamg77@gmail.com"
-                className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
-              >
-                Email Me
-              </a>
-              <a
-                href="https://www.linkedin.com/in/suraj-gautam-897284184/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
-              >
-                LinkedIn
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact CTA Section */}
       <section className="py-16 md:py-20 px-4 md:px-8 max-w-6xl mx-auto text-center reveal">
         <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg hover-lift">
