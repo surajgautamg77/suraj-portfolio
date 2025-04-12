@@ -31,7 +31,7 @@ const ProjectsPage: React.FC = () => {
       title: "Kings Club Games",
       description:
         "Comprehensive software solution for KingsClub, enabling users to play various games and win money, with administrative tools for managing games and users.",
-      image: "/images/projects/kings-club.jpg",
+      image: "/assets/images/projects/kings-club.jpg",
       technologies: [
         "Node.js",
         "Express.js",
@@ -48,7 +48,7 @@ const ProjectsPage: React.FC = () => {
       title: "Hadabon (Web and Mobile Application)",
       description:
         "An application that allows users to capture photos to identify skin problems, track improvement, book doctor appointments, and purchase beauty products.",
-      image: "/images/projects/hadabon.jpg",
+      image: "/assets/images/projects/hadabon.jpg",
       technologies: ["Node.js", "Express.js", "MongoDB", "API Integration"],
       liveUrl: "https://www.hadabon.jp/",
       playStoreUrl:
@@ -60,7 +60,7 @@ const ProjectsPage: React.FC = () => {
       title: "Physics Wallah Backend APIs",
       description:
         "Developed backend APIs for Physics Wallah's mobile application, facilitating efficient communication between the frontend and the database.",
-      image: "/images/projects/physics-wallah.jpg",
+      image: "/assets/images/projects/physics-wallah.jpg",
       technologies: ["Node.js", "Express.js", "MongoDB", "Authentication"],
       featured: false,
     },
@@ -69,7 +69,7 @@ const ProjectsPage: React.FC = () => {
       title: "Personal Developer Portfolio",
       description:
         "A responsive portfolio website built with React and Tailwind CSS, showcasing my projects and skills with dark/light mode support.",
-      image: "/images/projects/portfolio.jpg",
+      image: "/assets/images/projects/portfolio.jpg",
       technologies: ["React.js", "Tailwind CSS", "Responsive Design"],
       liveUrl: "#",
       githubUrl: "https://github.com/surajgautam27/portfolio",
@@ -80,7 +80,7 @@ const ProjectsPage: React.FC = () => {
       title: "Task Management System",
       description:
         "A full-stack task management application allowing users to create, assign, track, and manage tasks with different priority levels.",
-      image: "/images/projects/task-management.jpg",
+      image: "/assets/images/projects/task-management.jpg",
       technologies: ["MERN Stack", "Redux", "JWT Authentication"],
       githubUrl: "https://github.com/surajgautam27/task-management",
       featured: false,
@@ -90,7 +90,7 @@ const ProjectsPage: React.FC = () => {
       title: "E-commerce Platform",
       description:
         "A MERN stack e-commerce platform with features like product catalog, shopping cart, user authentication, and payment integration.",
-      image: "/images/projects/ecommerce.jpg",
+      image: "/assets/images/projects/ecommerce.jpg",
       technologies: ["MERN Stack", "Redux", "Payment Gateway Integration"],
       githubUrl: "https://github.com/surajgautam27/ecommerce-platform",
       featured: false,

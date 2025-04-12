@@ -173,7 +173,7 @@ const HomePage: React.FC = () => {
       title: "Kings Club Games",
       description:
         "Comprehensive software solution for KingsClub, enabling users to play various games and win money, with administrative tools for managing games and users.",
-      image: "/images/projects/kings-club.jpg",
+      image: "/assets/images/projects/kings-club.jpg",
       tags: [
         "Node.js",
         "Express.js",
@@ -190,7 +190,7 @@ const HomePage: React.FC = () => {
       title: "Hadabon (Web and Mobile Application)",
       description:
         "An application that allows users to capture photos to identify skin problems, track improvement, book doctor appointments, and purchase beauty products.",
-      image: "/images/projects/hadabon.jpg",
+      image: "/assets/images/projects/hadabon.jpg",
       tags: ["Node.js", "Express.js", "MongoDB", "API Integration"],
       liveUrl: "https://www.hadabon.jp/",
       playStoreUrl:
@@ -202,7 +202,7 @@ const HomePage: React.FC = () => {
       title: "E-Commerce Platform",
       description:
         "A fully-featured online store with product catalog, shopping cart, user authentication, payment integration, and admin dashboard for inventory management.",
-      image: "/images/projects/ecommerce.jpg",
+      image: "/assets/images/projects/ecommerce.jpg",
       tags: [
         "Node.js",
         "Express.js",
@@ -434,7 +434,7 @@ const HomePage: React.FC = () => {
           <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-primary dark:bg-gradient-to-br dark:from-blue-500 dark:to-cyan-500 relative overflow-hidden shadow-blue-lg border-4 border-white dark:border-gray-800 animate-float">
             {/* Replace with your actual profile image */}
             <img
-              src="/images/profile.jpg"
+              src="/assets/images/profile.jpg"
               alt="Suraj Gautam"
               className="w-full h-full object-cover"
             />
@@ -531,6 +531,38 @@ const HomePage: React.FC = () => {
           >
             View All Projects
           </Link>
+        </div>
+      </section>
+
+      {/* Availability Section */}
+      <section className="py-12 md:py-16 px-4 md:px-8 max-w-6xl mx-auto reveal">
+        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg hover-lift">
+          <div className="text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Currently Available for New Projects
+            </h2>
+            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+              I'm actively seeking new opportunities and collaborations. Whether
+              you have a project in mind or just want to connect, I'd love to
+              hear from you.
+            </p>
+            <div className="flex justify-center gap-4">
+              <a
+                href="mailto:surajgautamg77@gmail.com"
+                className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
+              >
+                Email Me
+              </a>
+              <a
+                href="https://www.linkedin.com/in/suraj-gautam-897284184/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
