@@ -221,23 +221,27 @@ const AboutPage: React.FC = () => {
           >
             {/* Institution Header */}
             <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
-                  <img
-                    src={`https://picsum.photos/200/200?random=${index + 100}`}
-                    alt={`${edu.institution} logo`}
-                    className="w-full h-full object-cover"
-                  />
+              <div className="flex flex-col md:flex-row gap-4 md:items-center">
+                <div className="flex items-start gap-4 flex-1">
+                  <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
+                    <img
+                      src={`https://picsum.photos/200/200?random=${
+                        index + 100
+                      }`}
+                      alt={`${edu.institution} logo`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 break-words">
+                      {edu.institution}
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      {edu.location}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                    {edu.institution}
-                  </h3>
-                  <p className="text-gray-500 dark:text-gray-400">
-                    {edu.location}
-                  </p>
-                </div>
-                <div className="text-right">
+                <div className="flex-shrink-0 flex md:block items-center justify-between mt-2 md:mt-0">
                   <p className="text-gray-500 dark:text-gray-400 font-medium">
                     {edu.year}
                   </p>
@@ -278,25 +282,29 @@ const AboutPage: React.FC = () => {
             >
               {/* Organization Header */}
               <div className="p-6 border-b border-gray-200 dark:border-gray-700">
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
-                    <img
-                      src={`https://picsum.photos/200/200?random=${index}`}
-                      alt={`${job.company} logo`}
-                      className="w-full h-full object-cover"
-                    />
+                <div className="flex flex-col md:flex-row gap-4 md:items-center">
+                  <div className="flex items-start gap-4 flex-1">
+                    <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
+                      <img
+                        src={`https://picsum.photos/200/200?random=${index}`}
+                        alt={`${job.company} logo`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 break-words">
+                        {job.company}
+                      </h3>
+                      <p className="text-gray-500 dark:text-gray-400">
+                        {job.location} · {job.type}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                      {job.company}
-                    </h3>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      {job.location} · {job.type}
+                  <div className="flex-shrink-0 flex md:block items-center justify-between mt-2 md:mt-0">
+                    <p className="text-gray-500 dark:text-gray-400 font-medium">
+                      {job.period}
                     </p>
                   </div>
-                  <p className="text-gray-500 dark:text-gray-400 font-medium">
-                    {job.period}
-                  </p>
                 </div>
               </div>
 
@@ -304,10 +312,10 @@ const AboutPage: React.FC = () => {
               <div className="p-6 space-y-6">
                 {/* Position Card */}
                 <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
-                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2 break-words">
                     {job.position}
                   </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 break-words">
                     {job.description}
                   </p>
                 </div>
