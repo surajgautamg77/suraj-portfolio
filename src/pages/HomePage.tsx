@@ -407,17 +407,26 @@ const HomePage: React.FC = () => {
             applications with clean, efficient code.
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start animate-slide-in-left delay-400">
-            <Link
-              to="/contact"
-              className="inline-block w-40 md:w-48 text-center bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-3 md:py-4 px-8 md:px-10 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
-            >
-              Hire Me
-            </Link>
             <a
-              href="#projects"
-              className="inline-block w-40 md:w-48 text-center border border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 hover:bg-blue-600 dark:hover:bg-blue-900 hover:text-white py-3 md:py-4 px-8 md:px-10 rounded-lg transition-colors duration-300"
+              href="/assets/resume/resume.pdf"
+              download="Suraj_Gautam_Resume.pdf"
+              className="inline-flex items-center w-40 md:w-48 bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
             >
-              View Projects
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mr-2"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              <span className="whitespace-nowrap">Download Resume</span>
             </a>
           </div>
         </div>
