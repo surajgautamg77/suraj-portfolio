@@ -414,7 +414,7 @@ const AboutPage: React.FC = () => {
 
       {/* Contact CTA */}
       <section className="reveal">
-        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 shadow-blue-lg hover-lift">
+        <div className="bg-gradient-primary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 rounded-xl p-8 md:p-12 text-center shadow-blue-lg hover-lift">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
             Interested in Working Together?
           </h2>
@@ -424,7 +424,7 @@ const AboutPage: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105 animate-pulse-slow"
+            className="inline-block glass-effect text-blue-700 dark:text-blue-600 font-medium py-3 px-8 rounded-lg hover:bg-white/90 transition-colors duration-300 transform hover:scale-105"
           >
             Get in Touch
           </Link>
