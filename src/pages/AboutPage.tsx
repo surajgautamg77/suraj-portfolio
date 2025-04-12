@@ -208,74 +208,151 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section className="mb-16 reveal">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
+          Education
+        </h2>
+
+        {education.map((edu, index) => (
+          <div
+            key={index}
+            className="bg-white dark:bg-gray-800 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift"
+          >
+            {/* Institution Header */}
+            <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+              <div className="flex items-center gap-6">
+                <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
+                  <img
+                    src={`https://picsum.photos/200/200?random=${index + 100}`}
+                    alt={`${edu.institution} logo`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400">
+                    {edu.location}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-gray-500 dark:text-gray-400 font-medium">
+                    {edu.year}
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Score: {edu.score}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Degree Details */}
+            <div className="p-6">
+              <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">
+                  {edu.degree} in {edu.field}
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 mt-2">
+                  Specialized in Computer Science and Engineering with a focus
+                  on software development, algorithms, and data structures.
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
       {/* Work Experience */}
       <section className="mb-16 reveal">
         <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
           Professional Experience
         </h2>
 
-        <div
-          // className="space-y-8"
-          className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift animate-fade-in delay-300 space-y-8"
-        >
+        <div className="space-y-6">
           {workExperience.map((job, index) => (
-            <div key={index}>
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                    {index + 1}- {job.position}
-                  </h3>
-                  <p className="text-blue-600 dark:text-blue-400 font-medium">
-                    @ {job.company}
-                  </p>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm mb-2">
-                    {job.location} · {job.type}
+            <div
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift"
+            >
+              {/* Organization Header */}
+              <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 dark:bg-gray-700 flex-shrink-0">
+                    <img
+                      src={`https://picsum.photos/200/200?random=${index}`}
+                      alt={`${job.company} logo`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
+                      {job.company}
+                    </h3>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      {job.location} · {job.type}
+                    </p>
+                  </div>
+                  <p className="text-gray-500 dark:text-gray-400 font-medium">
+                    {job.period}
                   </p>
                 </div>
-                <p className="text-gray-500 dark:text-gray-400 font-medium md:text-right">
-                  {job.period}
-                </p>
               </div>
-              <hr></hr>
-              <p className="text-gray-600 dark:text-gray-300 my-4">
-                {job.description}
-              </p>
-              <div className="mb-4">
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                  Key Responsibilities
-                </h4>
-                <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
-                  {job.responsibilities.map((responsibility, idx) => (
-                    <li key={idx}>{responsibility}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="mb-4">
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                  Projects
-                </h4>
-                <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
-                  {job.projects.map((project, idx) => (
-                    <li key={idx}>{project}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
-                  Skills Used
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {job.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+
+              {/* Experience Details */}
+              <div className="p-6 space-y-6">
+                {/* Position Card */}
+                <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                    {job.position}
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {job.description}
+                  </p>
+                </div>
+
+                {/* Responsibilities Card */}
+                <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                    Key Responsibilities
+                  </h4>
+                  <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
+                    {job.responsibilities.map((responsibility, idx) => (
+                      <li key={idx}>{responsibility}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Projects Card */}
+                <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                    Projects
+                  </h4>
+                  <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 space-y-1">
+                    {job.projects.map((project, idx) => (
+                      <li key={idx}>{project}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Skills Card */}
+                <div className="bg-gray-50 dark:bg-gray-700/50 p-4 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+                    Skills Used
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {job.skills.map((skill, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 text-xs font-medium rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 hover-grow"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-              <div className="flex justify-center mt-4">(*_*)</div>
             </div>
           ))}
         </div>
@@ -352,42 +429,6 @@ const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Education Section */}
-      <section className="mb-16 reveal">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-transparent bg-clip-text gradient-text-secondary dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500">
-          Education
-        </h2>
-
-        {education.map((edu, index) => (
-          <div
-            key={index}
-            className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-blue hover:shadow-blue-md transition-all duration-300 border border-gray-200 dark:border-gray-700 hover-lift"
-          >
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-              <div>
-                <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                  {edu.degree} in {edu.field}
-                </h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium">
-                  {edu.institution}
-                </p>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">
-                  {edu.location}
-                </p>
-              </div>
-              <div className="md:text-right">
-                <p className="text-gray-500 dark:text-gray-400 font-medium">
-                  {edu.year}
-                </p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Score: {edu.score}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
       </section>
 
       {/* Interests Section */}
