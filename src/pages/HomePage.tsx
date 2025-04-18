@@ -170,19 +170,24 @@ const HomePage: React.FC = () => {
   // Project data
   const projects = [
     {
-      title: "Kings Club Games",
+      title: "Document Analyzer (SaaS)",
       description:
-        "Comprehensive software solution for KingsClub, enabling users to play various games and win money, with administrative tools for managing games and users.",
-      image: "/assets/images/projects/kings-club.jpg",
+        "A SaaS-based Document Analyzer featuring secure workspaces, smart document parsing, contextual chat, and resume analysis with a responsive, scalable interface",
+      image: "/assets/images/projects/document-analyzer.jpg",
       tags: [
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "React.js",
+        "Nest.js",
+        "VectorDB",
+        "Embedding",
+        "Semantic Search",
+        "RAG",
+        "LLM",
+        "Scraping",
+        "Langchain",
+        "React",
         "Tailwind CSS",
-        "AWS S3",
+        "PostgreSQL",
       ],
-      liveUrl: "https://kingsclub.games/",
+      liveUrl: "#",
       hasLiveSite: true,
       theme: "bg-gradient-primary",
     },
