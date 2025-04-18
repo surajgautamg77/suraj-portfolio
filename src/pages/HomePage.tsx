@@ -170,6 +170,44 @@ const HomePage: React.FC = () => {
   // Project data
   const projects = [
     {
+      title: "Pharyinx WhatsApp Platform",
+      description:
+        "A multi-tenant SaaS platform for WhatsApp Business API integration, Facebook ad campaign management with Click-to-WhatsApp functionality, and AI-powered chatbots for automated customer interactions.",
+      image: "/assets/images/projects/pharyinx-whatsapp.jpg",
+      tags: [
+        "NestJS",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "Facebook API",
+        "WhatsApp API",
+        "LLMs",
+        "Campaign Management",
+      ],
+      liveUrl: "#",
+      hasLiveSite: true,
+      theme: "bg-gradient-primary",
+    },
+    {
+      title: "Pharyinx Connect - AI Chatbot Platform",
+      description:
+        "A multi-tenant SaaS platform for building customized AI chatbots with document training, configurable embedding engines, and intelligent responses powered by LLMs and RAG.",
+      image: "/assets/images/projects/pharyinx-connect.jpg",
+      tags: [
+        "NestJS",
+        "React",
+        "TypeScript",
+        "PostgreSQL",
+        "pgvector",
+        "LLMs",
+        "RAG",
+        "Python",
+      ],
+      liveUrl: "#",
+      hasLiveSite: true,
+      theme: "bg-gradient-primary",
+    },
+    {
       title: "Document Analyzer (SaaS)",
       description:
         "A SaaS-based Document Analyzer featuring secure workspaces, smart document parsing, contextual chat, and resume analysis with a responsive, scalable interface",
@@ -415,23 +453,9 @@ const HomePage: React.FC = () => {
             <a
               href="/assets/resume/resume.pdf"
               download="Suraj_Gautam_Resume.pdf"
-              className="inline-flex items-center w-40 md:w-48 bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
+              className="inline-flex items-center  bg-gradient-primary hover:opacity-90 dark:bg-gradient-to-r dark:from-blue-500 dark:to-cyan-500 dark:hover:opacity-90 text-white font-medium py-2.5 px-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-blue-md hover:shadow-blue-lg"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-              <span className="whitespace-nowrap">Download Resume</span>
+              Download Resume
             </a>
           </div>
         </div>

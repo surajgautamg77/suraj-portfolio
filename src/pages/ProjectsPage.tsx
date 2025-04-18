@@ -1,5 +1,19 @@
 import React from "react";
 
+// Define Project interface
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  playStoreUrl?: string;
+  features?: string[];
+  featured: boolean;
+}
+
 const ProjectsPage: React.FC = () => {
   // Add useEffect for scroll animations
   React.useEffect(() => {
@@ -25,9 +39,102 @@ const ProjectsPage: React.FC = () => {
     return () => window.removeEventListener("scroll", reveal);
   }, []);
 
-  const projects = [
+  const projects: Project[] = [
     {
       id: 1,
+      title:
+        "Pharyinx WhatsApp Platform – Omni-Channel Communication & Campaign Management",
+      description:
+        "Built a SaaS platform enabling users to register as organizations, create isolated workspaces, and seamlessly integrate their Facebook Business accounts for WhatsApp Business API integration and ad campaign management.",
+      image: "/assets/images/projects/pharyinx-whatsapp.jpg",
+      technologies: [
+        "Node.js",
+        "NestJS",
+        "TypeScript",
+        "Python",
+        "React",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Facebook Graph API",
+        "WhatsApp Business API",
+        "LLMs",
+        "NLP",
+      ],
+      liveUrl: "#",
+      features: [
+        "Organization registration with isolated workspaces",
+        "Facebook Business account integration via embedded signup flow",
+        "Click-to-WhatsApp (CTWA) Facebook Ads creation and management",
+        "Bulk WhatsApp messaging campaigns with business-initiated templates",
+        "AI-powered chatbots for automated WhatsApp communication",
+        "Secure multi-tenant architecture with NestJS and PostgreSQL",
+        "Intuitive frontend for workspace and campaign management",
+      ],
+      featured: true,
+    },
+    {
+      id: 2,
+      title: "Pharyinx Connect – AI Chatbot SaaS Platform",
+      description:
+        "Developed Pharyinx Connect, a multi-tenant SaaS platform enabling organizations to register and build customized AI-powered chatbots with data from multiple documents and web-scraped content.",
+      image: "/assets/images/projects/pharyinx-connect.jpg",
+      technologies: [
+        "Node.js",
+        "NestJS",
+        "TypeScript",
+        "Python",
+        "React",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "pgvector",
+        "LLMs",
+        "NLP",
+        "RAG",
+      ],
+      liveUrl: "#",
+      features: [
+        "Multi-tenant SaaS platform for organizations to build customized AI chatbots",
+        "Dynamic chatbot training with document data and web-scraped content",
+        "Customizable chunking algorithms, vector databases, and embedding engines",
+        "Intelligent, context-aware responses using LLMs and NLP",
+        "RAG architecture for enhanced information retrieval",
+        "Backend with NestJS and pgvector for vector storage and similarity search",
+        "Responsive frontend with React and Tailwind CSS",
+        "Secure, scalable architecture supporting multiple organizations",
+      ],
+      featured: true,
+    },
+    {
+      id: 3,
+      title: "Document Analyzer (SaaS)",
+      description:
+        "Designed and developed a scalable SaaS-based Document Analyzer platform, allowing organizations to register, create isolated workspaces, and securely manage documents. Implemented intelligent parsing and RAG-powered chat interface for document interaction.",
+      image: "/assets/images/projects/document-analyzer.jpg",
+      technologies: [
+        "NestJS",
+        "Python",
+        "React",
+        "Tailwind CSS",
+        "PostgreSQL",
+        "Pinecone Vector DB",
+        "RAG",
+        "OpenAI",
+        "AWS",
+      ],
+      liveUrl: "#",
+      features: [
+        "Secure organization registration and isolated workspaces",
+        "Intelligent document parsing and management",
+        "Chat interface using text scraping, chunking, and vector embedding",
+        "RAG and Pinecone integration for contextual chat capabilities",
+        "Resume analysis with color-coded evaluation system",
+        "Responsive UI built with React and Tailwind CSS",
+        "Deployed on AWS for scalability and reliability",
+      ],
+      featured: true,
+    },
+    {
+      id: 4,
       title: "Kings Club Games",
       description:
         "Comprehensive software solution for KingsClub, enabling users to play various games and win money, with administrative tools for managing games and users.",
@@ -44,7 +151,7 @@ const ProjectsPage: React.FC = () => {
       featured: true,
     },
     {
-      id: 2,
+      id: 5,
       title: "Hadabon (Web and Mobile Application)",
       description:
         "An application that allows users to capture photos to identify skin problems, track improvement, book doctor appointments, and purchase beauty products.",
@@ -56,7 +163,7 @@ const ProjectsPage: React.FC = () => {
       featured: true,
     },
     {
-      id: 3,
+      id: 6,
       title: "Physics Wallah Backend APIs",
       description:
         "Developed backend APIs for Physics Wallah's mobile application, facilitating efficient communication between the frontend and the database.",
@@ -65,7 +172,7 @@ const ProjectsPage: React.FC = () => {
       featured: false,
     },
     {
-      id: 4,
+      id: 7,
       title: "Personal Developer Portfolio",
       description:
         "A responsive portfolio website built with React and Tailwind CSS, showcasing my projects and skills with dark/light mode support.",
@@ -76,7 +183,7 @@ const ProjectsPage: React.FC = () => {
       featured: false,
     },
     {
-      id: 5,
+      id: 8,
       title: "Task Management System",
       description:
         "A full-stack task management application allowing users to create, assign, track, and manage tasks with different priority levels.",
@@ -86,7 +193,7 @@ const ProjectsPage: React.FC = () => {
       featured: false,
     },
     {
-      id: 6,
+      id: 9,
       title: "E-commerce Platform",
       description:
         "A MERN stack e-commerce platform with features like product catalog, shopping cart, user authentication, and payment integration.",
@@ -137,6 +244,20 @@ const ProjectsPage: React.FC = () => {
                 <p className="text-gray-600 dark:text-gray-300 mb-5">
                   {project.description}
                 </p>
+
+                {/* Features */}
+                {project.features && (
+                  <div className="mb-5">
+                    <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+                      Key Features:
+                    </h4>
+                    <ul className="list-disc pl-5 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                      {project.features.map((feature, idx) => (
+                        <li key={idx}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 {/* Technologies */}
                 <div className="mb-6">
